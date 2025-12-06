@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soundboard</title>
+    
+</head>
+<style>
+    body {
+    background-color:rgb(13, 1, 27);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    gap:20px;
+}
+
+.mh {
+    color: darkblue;
+}
+
+.des{
+    color:crimson;
+    font-size:23px;
+    margin-bottom:2px;
+}
+
+.container{
+    height:800px;
+    width:1200px;
+    border:7px double white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    cursor:pointer;
+    gap:10px;
+}
+
+.box{
+    height:230px;
+    width:300px;
+    background-color:rgb(158, 153, 153);
+    border:5px solid rgb(248, 247, 247);
+    font-size:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    gap:10px;
+    color:navy;
+    font-weight:bold;
+}
+
+.img{
+    height:180px;
+    width:300px;
+}
+
+.box:hover{
+    transform:scale(1.08);
+    transition:all 0.3s ease-in-out;
+    box-shadow:5px 5px 15px white;
+}
+
+</style>
+<body>
+    <H1 class="mh"><u>Welcome to SoundBoard</u></H1>
+    <H3 class="des">Learning the web starts with a button, a sound, and the Audio API.</H3>
+    <H3 class="des work">Click any image to play or pause its sound.</H3>
+    
+    <div class="container">
+        <div class="box a">Dog bark
+            <img src="https://i.ibb.co/j9jqfP6k/a.jpg" alt="Dog" class="img">
+        </div>
+        <div class="box b">Lion roar
+             <img src="https://i.ibb.co/JjxvcKDF/b.jpg" alt="lion" class="img">
+        </div>
+        <div class="box c">Clap
+            <img src="https://i.ibb.co/4RmWWRpm/c.jpg" alt="clap" class="img">
+        </div>
+        <div class="box d">Laugh
+            <img src="https://i.ibb.co/XxQy6R2Y/d.jpg" alt="laugh" class="img">
+        </div>
+        <div class="box e">Cry
+            <img src="https://i.ibb.co/hFsncSRL/e.jpg" alt="cry" class="img">
+        </div>
+        <div class="box f">Bell
+            <img src="https://i.ibb.co/qYZhTV6y/f.jpg" alt="bell" class="img">
+        </div>
+        <div class="box g">Rain
+            <img src="https://i.ibb.co/VYyNJqtr/g.jpg" alt="rain" class="img">
+        </div>
+    </div>
+</body>
+<script>
+    let color=["red","darkorange","yellow","green","blue","indigo"];
+let index=0;
+let main_head=document.querySelector(".mh");
+setInterval(()=>{
+    main_head.style.color=color[index];
+    index++;
+    if(index==color.length){
+        index=0;
+    }
+},2000)
+
+let font=["20px","22px","24px","26px","28px","30px"];
+let idx=0;
+let work=document.querySelector(".work");
+setInterval(()=>{
+    work.style.fontSize=font[idx];
+    work.style.color=color[idx];
+    work.style.fontWeight="bold";
+    idx++;
+    if(idx==font.length){
+        idx=0;
+    }
+},2000)
+
+let soundFiles={
+    a:"sounds/a.mp3",
+    b:"sounds/b.mp3",
+    c:"sounds/c.mp3",
+    d:"sounds/d.mp3",
+    e:"sounds/e.mp3",
+    f:"sounds/f.mp3",
+    g:"sounds/g.mp3"
+}
+let sounds = {};
+for (let key in soundFiles) {
+    sounds[key] = new Audio(soundFiles[key]);
+}
+let boxes = document.querySelectorAll(".box");
+boxes.forEach(box => {
+    box.addEventListener("click", () => {
+        let key = box.classList[1];   
+        let sound = sounds[key];
+        if (!sound.paused) {
+            sound.pause();
+            sound.currentTime = 0;   
+        } 
+        else {
+            sound.play();          
+        }
+    });
+});
+
+
+</script>
+</html>
