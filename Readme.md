@@ -15,35 +15,6 @@ This mini-app helps you understand how the **Audio API** works with simple user 
 
 ---
 
-## 📁 Project Structure
-
-SoundBoard/
-│
-├── index.html
-├── project.css
-├── project.js
-│
-├── sounds/
-│   ├── a.mp3
-│   ├── b.mp3
-│   ├── c.mp3
-│   ├── d.mp3
-│   ├── e.mp3
-│   ├── f.mp3
-│   └── g.mp3
-│
-└── images/
-    ├── a.jpg
-    ├── b.jpg
-    ├── c.jpg
-    ├── d.jpg
-    ├── e.jpg
-    ├── f.jpg
-    └── g.jpg
-
-
----
-
 ## 🛠️ How It Works
 
 Each sound box has a class like `a`, `b`, `c`, etc.  
